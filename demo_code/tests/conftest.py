@@ -1,9 +1,8 @@
 import os
 import pathlib
 
-from flask import url_for
 import pytest
-
+from flask import url_for
 
 from flaskapp import create_app, db, seeder
 
