@@ -4,5 +4,7 @@ coverage
 pytest-cov
 pytest-playwright
 pip-tools
+ruff
+black
 
 pytest-flask
