@@ -3,6 +3,7 @@ import re
 import pytest
 from playwright.sync_api import Page, expect
 
+
 def test_home(mock_functions_env, page: Page, live_server_url: str):
     """Test that the home page loads"""
     page.goto(live_server_url)
