@@ -38,11 +38,13 @@ def app():
         connection.close()
         engines[key] = engine
 
+
 @pytest.fixture(scope="session")
 def mock_functions_env():
     pass
 
+
 @pytest.fixture(scope="function")
 def live_server_url(app, live_server):
     """Returns the url of the live server"""
-    return url_for('pages.index', _external=True)
+    return url_for("pages.index", _external=True)
