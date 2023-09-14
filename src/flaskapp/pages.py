@@ -1,6 +1,6 @@
-import db
-import models
 from flask import Blueprint, redirect, render_template, request, url_for
+
+from . import db, models
 
 bp = Blueprint("pages", __name__)
 
