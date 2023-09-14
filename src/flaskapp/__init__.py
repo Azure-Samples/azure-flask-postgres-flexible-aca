@@ -8,6 +8,9 @@ from opencensus.ext.azure.trace_exporter import AzureExporter
 from opencensus.ext.flask.flask_middleware import FlaskMiddleware
 from opencensus.trace.samplers import ProbabilitySampler
 
+db = SQLAlchemy()
+migrate = Migrate()
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -37,8 +40,7 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI=app.config.get("DATABASE_URI"),
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
     )
-    db = SQLAlchemy()
-    migrate = Migrate()
+
     db.init_app(app)
     migrate.init_app(app, db)
 
