@@ -33,9 +33,7 @@ def seed_data(db, filename: str) -> None:
                     for destination_id in entry["fields"]["destinations"]:
                         destination = session.get(models.Destination, destination_id)
                         if destination is None:
-                            raise Exception(
-                                f"Destination with id {destination_id} not found"
-                            )
+                            raise Exception(f"Destination with id {destination_id} not found")
                         destinations.append(destination)
 
                     cruise = models.Cruise(

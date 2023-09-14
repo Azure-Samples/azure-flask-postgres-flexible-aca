@@ -48,11 +48,7 @@ def cruise_detail(pk: int):
 def info_request():
     all_cruises = db.session.execute(db.select(models.Cruise)).scalars().all()
 
-    return render_template(
-        "info_request_create.html",
-        cruises=all_cruises,
-        message=request.args.get("message"),
-    )
+    return render_template("info_request_create.html", cruises=all_cruises, message=request.args.get("message"))
 
 
 @bp.post("/info_request/")
@@ -66,7 +62,5 @@ def create_info_request():
     )
     db.session.add(db_info_request)
     db.session.commit()
-    success_message = (
-        f"Thank you, {name}! We will email you when we have more information!"
-    )
+    success_message = f"Thank you, {name}! We will email you when we have more information!"
     return redirect(url_for("pages.info_request", message=success_message))

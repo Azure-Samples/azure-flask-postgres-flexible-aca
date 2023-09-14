@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "508b60eb7daa79fd0168b9fe6752112fc4f44ad4",
+  "commit": "5eee5631f770439561453b4cff6928539a3e63f2",
   "checkout": "fix-flask-issues",
   "context": {
     "cookiecutter": {

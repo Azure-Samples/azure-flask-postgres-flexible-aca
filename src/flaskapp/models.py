@@ -12,9 +12,7 @@ class Destination(db.Model):
     name = db.Column(db.String(255), nullable=False)
     subtitle = db.Column(db.String(255), nullable=True)
     description = db.Column(db.String(1000), nullable=True)
-    cruises = db.relationship(
-        "Cruise", secondary=association_table, back_populates="destinations"
-    )
+    cruises = db.relationship("Cruise", secondary=association_table, back_populates="destinations")
 
     def __str__(self):
         return self.name
@@ -25,9 +23,7 @@ class Cruise(db.Model):
     name = db.Column(db.String(255), nullable=False)
     subtitle = db.Column(db.String(255), nullable=True)
     description = db.Column(db.String(1000), nullable=True)
-    destinations = db.relationship(
-        "Destination", secondary=association_table, back_populates="cruises"
-    )
+    destinations = db.relationship("Destination", secondary=association_table, back_populates="cruises")
 
     def __str__(self):
         return self.name

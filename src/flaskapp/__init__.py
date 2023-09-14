@@ -24,11 +24,7 @@ def create_app(test_config=None):
         app.config.from_object("flaskapp.config.production")  # pragma: no cover
         FlaskMiddleware(
             app,
-            exporter=AzureExporter(
-                connection_string=os.environ.get(
-                    "APPLICATIONINSIGHTS_CONNECTION_STRING", None
-                )
-            ),
+            exporter=AzureExporter(connection_string=os.environ.get("APPLICATIONINSIGHTS_CONNECTION_STRING", None)),
             sampler=ProbabilitySampler(rate=1.0),
         )
 
@@ -36,10 +32,7 @@ def create_app(test_config=None):
     if test_config is not None:
         app.config.update(test_config)
 
-    app.config.update(
-        SQLALCHEMY_DATABASE_URI=app.config.get("DATABASE_URI"),
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    )
+    app.config.update(SQLALCHEMY_DATABASE_URI=app.config.get("DATABASE_URI"), SQLALCHEMY_TRACK_MODIFICATIONS=False)
 
     db.init_app(app)
     migrate.init_app(app, db)

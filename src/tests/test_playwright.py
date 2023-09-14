@@ -18,9 +18,7 @@ def test_home(page: Page, live_server_url: str):
         ("About", "about"),
     ),
 )
-def test_header_has_request_info(
-    page: Page, live_server_url: str, page_title, page_url
-):
+def test_header_has_request_info(page: Page, live_server_url: str, page_title, page_url):
     """Test that the header loads with links"""
     page.goto(live_server_url)
     header = page.locator("nav")
@@ -88,9 +86,7 @@ def test_destination_options(
     "destination",
     destinations,
 )
-def test_destination_options_have_cruises(
-    page: Page, live_server_url: str, destination
-):
+def test_destination_options_have_cruises(page: Page, live_server_url: str, destination):
     page.goto(live_server_url)
     page.get_by_role("link", name="Destinations").click()
     page.get_by_role("link", name=destination).click()
@@ -107,6 +103,4 @@ def test_about(page: Page, live_server_url: str):
     """Test that the request info form page loads"""
     page.goto(live_server_url)
     page.get_by_role("link", name="About").click()
-    expect(page.locator("#page-title")).to_have_text(
-        re.compile(r".*about.*", re.IGNORECASE)
-    )
+    expect(page.locator("#page-title")).to_have_text(re.compile(r".*about.*", re.IGNORECASE))
