@@ -1,0 +1,29 @@
+{
+  "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
+  "commit": "a42b8c4f45db7fe727f645a2bec343fca743a8ab",
+  "checkout": "fix-flask-issues",
+  "context": {
+    "cookiecutter": {
+      "project_name": "azure",
+      "project_backend": "flask",
+      "db_resource": "postgres-flexible",
+      "project_host": "aca",
+      "web_port": "8000",
+      "__repo_name": "azure-flask-postgres-flexible-aca",
+      "__src_folder_name": "azure_flask_postgres_flexible_aca",
+      "__project_short_description": "Create a relecloud demo application with flask and postgres-flexible",
+      "_copy_without_render": [
+        "root/.github/workflows/*"
+      ],
+      "_extensions": [
+        "extensions.GetUrlForBackend"
+      ],
+      "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+      },
+      "_template": "https://github.com/kjaymiller/cookiecutter-relecloud"
+    }
+  },
+  "directory": null
+}
