@@ -7,8 +7,14 @@ from flask_sqlalchemy import SQLAlchemy
 from opencensus.ext.azure.trace_exporter import AzureExporter
 from opencensus.ext.flask.flask_middleware import FlaskMiddleware
 from opencensus.trace.samplers import ProbabilitySampler
+from sqlalchemy.orm import DeclarativeBase
 
-db = SQLAlchemy()
+
+class BaseModel(DeclarativeBase):
+    pass
+
+
+db = SQLAlchemy(model_class=BaseModel)
 migrate = Migrate()
 
 
