@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "5461a58fa1a9c505c57ad02ea7f151a7f122dc2d",
+  "commit": "c1d81947006a8e4ac7915b5fcc92d385aa57735a",
   "checkout": "main",
   "context": {
     "cookiecutter": {
@@ -13,7 +13,10 @@
       "__src_folder_name": "azure_flask_postgres_flexible_aca",
       "__project_short_description": "Create a relecloud demo application with flask and postgres-flexible",
       "_copy_without_render": [
-        ".github/workflows/*"
+        ".github/workflows/azure-dev.yml",
+        ".github/workflows/cruft.yml",
+        ".github/workflows/devcontainer-ci.yml",
+        ".github/workflows/format.yml"
       ],
       "_extensions": [
         "extensions.GetUrlForBackend"
