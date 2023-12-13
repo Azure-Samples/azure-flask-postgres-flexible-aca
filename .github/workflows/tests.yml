@@ -22,7 +22,6 @@ jobs:
       - name: Check for MacOS Runner
         if: matrix.os == 'macos-latest-xlarge'
         run: |
-          echo "This is a MacOS Runner"
           brew install postgresql@14
       - uses: ikalnytskyi/action-setup-postgres@v4
       - name: Setup python
