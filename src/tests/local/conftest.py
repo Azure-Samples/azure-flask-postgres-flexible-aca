@@ -1,4 +1,7 @@
+import subproccess
 import multiprocessing
+from multiprocessing.pool import ThreadPool as Pool
+
 import os
 import pathlib
 
@@ -54,18 +57,32 @@ def live_server_url(app_with_db):
     # Start the process
     hostname = ephemeral_port_reserve.LOCALHOST
     free_port = ephemeral_port_reserve.reserve(hostname)
-    proc = multiprocessing.Process(
-        target=run_server,
+
+
+    pool = Pool(processes=1)
+    pool.apply_async(
+        run_server,
         args=(
             app_with_db,
             free_port,
         ),
         daemon=True,
     )
-    proc.start()
+
+
+    # proc = multiprocessing.Process(
+    #     target=run_server,
+    #     args=(
+    #         app_with_db,
+    #         free_port,
+    #     ),
+    #     daemon=True,
+    # )
+    # proc.start()
 
     # Return the URL of the live server
     yield f"http://{hostname}:{free_port}"
 
     # Clean up the process
-    proc.kill()
+    pool.close()
+    # proc.kill()
