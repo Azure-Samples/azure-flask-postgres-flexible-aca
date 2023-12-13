@@ -19,6 +19,11 @@ jobs:
         python_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v3
+      - name: Check for MacOS Runner
+        if: matrix.os == 'macos-latest-xlarge'
+        run: |
+          echo "This is a MacOS Runner"
+          brew install postgresql@14
       - uses: ikalnytskyi/action-setup-postgres@v4
       - name: Setup python
         uses: actions/setup-python@v2
