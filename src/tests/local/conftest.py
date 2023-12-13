@@ -9,8 +9,9 @@ from flask import Flask
 
 from flaskapp import create_app, db, seeder
 
-# Set start method to "fork" to avoid issues with pickling on OSes that default to "spawn"
-multiprocessing.set_start_method("spawn")
+# We're using `spawn` to create a consistent call across the three main os's (Windows, Linux, MacOS)
+# FMI: https://discuss.python.org/t/switching-default-multiprocessing-context-to-spawn-on-posix-as-well/21868
+multiprocessing.set_start_method("spawn") 
 
 
 def run_server(app: Flask, port: int):
