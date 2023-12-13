@@ -1,9 +1,7 @@
-import subproccess
 import multiprocessing
-from multiprocessing.pool import ThreadPool as Pool
-
 import os
 import pathlib
+from multiprocessing.pool import ThreadPool as Pool
 
 import ephemeral_port_reserve
 import pytest
@@ -66,7 +64,6 @@ def live_server_url(app_with_db):
             app_with_db,
             free_port,
         ),
-        daemon=True,
     )
 
 
