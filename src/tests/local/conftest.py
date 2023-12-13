@@ -9,7 +9,7 @@ from flask import Flask
 from flaskapp import create_app, db, seeder
 
 # Set start method to "fork" to avoid issues with pickling on OSes that default to "spawn"
-multiprocessing.set_start_method("fork")
+multiprocessing.set_start_method("spawn")
 
 
 def run_server(app: Flask, port: int):
