@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/kjaymiller/cookiecutter-relecloud",
-  "commit": "f86115e94dda2639d5678dad3a3232bacf583af2",
-  "checkout": "picklefix",
+  "commit": "d6c02d592d8d8a4e408fd4068f3e593a7e069568",
+  "checkout": "django-opentelemetry",
   "context": {
     "cookiecutter": {
       "project_name": "azure",
