@@ -74,6 +74,10 @@ module app 'core/host/container-app-upsert.bicep' = {
         value: applicationInsights.properties.ConnectionString
       }
       {
+        name: 'OTEL_EXPERIMENTAL_RESOURCE_DETECTORS'
+        value: 'azure_app_service'
+      }
+      {
         name: 'SECRET_KEY'
         secretRef: 'secret-key'
       }
