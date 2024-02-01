@@ -1,6 +1,7 @@
 import multiprocessing
 import os
 import pathlib
+import sys
 
 import ephemeral_port_reserve
 import pytest
@@ -9,7 +10,8 @@ from flask import Flask
 from flaskapp import create_app, db, seeder
 
 # Set start method to "fork" to avoid issues with pickling on OSes that default to "spawn"
-multiprocessing.set_start_method("fork")
+if sys.platform != "win32":
+    multiprocessing.set_start_method("fork")
 
 
 def run_server(app: Flask, port: int):
