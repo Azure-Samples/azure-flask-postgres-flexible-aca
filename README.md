@@ -1,3 +1,22 @@
+---
+page_type: sample
+languages:
+- azdeveloper
+- python
+- bicep
+- html
+- css
+- scss
+products:
+- azure
+- azure-container-apps
+- azure-postgresql
+urlFragment: azure-flask-postgres-flexible-aca
+name: Deploy Flask Application with PostgreSQL on Azure Container Apps (Python)
+description: This project deploys a web application for a space travel agency using Flask with Python, and is set up for easy deployment with the Azure Developer CLI.
+---
+<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
+
 # Deploy Flask Application with PostgreSQL via Azure Container Apps
 
 This project deploys a web application for a space travel agency using Flask. The application can be deployed to Azure with Azure Container Apps using the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).
@@ -46,7 +65,7 @@ export POSTGRES_PASSWORD=<YOUR PASSWORD>
 If you're running the app inside VS Code or GitHub Codespaces, you can use the "Run and Debug" button to start the app.
 
 ```sh
-python3 -m flask --app src.flaskapp run --reload --port=8000
+python3 -m flask --app src.flaskapp run --debug --reload --port=8000
 ```
 
 
@@ -56,7 +75,7 @@ python3 -m flask --app src.flaskapp run --reload --port=8000
 
     ```sh
     python3 -m pip install -r requirements-dev.txt
-    python3 -m playwright install --with-deps
+    python3 -m playwright install chromium --with-deps
     ```
 
 3. Run the tests:
